@@ -81,7 +81,9 @@ namespace Peek.Ui {
 
     [GtkChild]
     private Gtk.CheckButton recording_capture_mouse;
-
+    
+    [GtkChild]
+    private Gtk.CheckButton recording_capture_sound;
 
     public PreferencesDialog () {
       Object ();
@@ -123,6 +125,11 @@ namespace Peek.Ui {
       settings.bind ("recording-capture-mouse",
         recording_capture_mouse, "active",
         SettingsBindFlags.DEFAULT);
+        
+      settings.bind ("recording-capture-sound",
+        recording_capture_sound, "active",
+        SettingsBindFlags.DEFAULT);
+
 
       on_interface_open_file_manager_toggled (interface_open_file_manager);
       on_gifski_toggled (recording_gifski_enabled);
